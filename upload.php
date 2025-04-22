@@ -133,80 +133,7 @@ if ($_FILES['file']['error'] === UPLOAD_ERR_OK) {
                 <html>
                 <head>
                     <title>PDF Preview</title>
-                    <style>
-                        body {
-                            margin: 0;
-                            padding: 0;
-                        }
-        
-                        .page-container {
-                            width: 297mm; /* A4 width in landscape */
-                            height: 210mm; /* A4 height in landscape */
-                            border: 0px solid black;
-                            margin: 0 auto;
-                            display: flex;
-                            flex-wrap: wrap;
-                            gap: 2mm; /* Space between tags */
-                            box-sizing: border-box;
-                            padding: 2mm;
-                        }
-        
-                        .tag-container {
-                            width: 70.25mm; /* Tag width */
-                            height: 101mm; /* Tag height */
-                            border: 0px solid black;
-                            box-sizing: border-box;
-                            display: flex;
-                            flex-direction: column;
-                        }
-        
-                        .top-area {
-                            height: 20%; /* Top area height */
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            padding: 2mm;
-                        }
-        
-                        .logo {
-                            max-width: 50mm; /* Maximum width */
-                            max-height: 20mm; /* Maximum height */
-                            width: auto; /* Automatically adjust width */
-                            height: auto; /* Automatically adjust height */
-                            object-fit: contain; /* Ensure the image fits within the bounds while maintaining aspect ratio */
-                        }
-        
-                        .qr-code {
-                            width: 20mm;
-                            height: 20mm;
-                        }
-        
-                        .middle-area {
-                            height: 30%; /* Middle area height */
-                            padding: 2mm; /* Add padding for spacing */
-                            font-size: 12px; /* Set font size */
-                            line-height: 1.0; /* Add consistent spacing between lines */
-                            text-align: left; /* Align text to the left */
-                            display: block; /* Use block layout instead of flex */
-                        }
-        
-                        .bottom-area {
-                            width: 70mm;
-                            height: 50%; /* Bottom area height */
-                            display: flex;
-                            object-fit: contain; /* Ensures the image resizes proportionally without stretching */
-                            object-position: center; /* Centers the image within the container */
-                        }
-        
-                        .bmp-image {
-                            max-width: 70mm; /* Maximum width */
-                            max-height: 30mm; /* Maximum height */
-                            width: auto; /* Maintain aspect ratio */
-                            height: auto; /* Maintain aspect ratio */
-                            display: block; /* Ensure the image is treated as a block element */
-                            margin: auto; /* Center the image horizontally and vertically */
-                        }
-                    </style>
+                    <link rel="stylesheet" href="style.css">
                     <script>
                         // Automatically load generate_pdf.php after the page is fully loaded
                         window.onload = function() {
@@ -224,14 +151,11 @@ if ($_FILES['file']['error'] === UPLOAD_ERR_OK) {
                 foreach ($_SESSION['tags'] as $index => $tag) {
                     ?>
                     <div class="tag-container">
-                        <!-- Top Area -->
                         <div class="top-area">
-                            <!-- Logo on the left -->
                             <?php if (file_exists(__DIR__ . '/files/logo.png')): ?>
                                 <img src="files/logo.png" alt="Company Logo" class="logo">
                             <?php endif; ?>
 
-                            <!-- QR Code on the right -->
                             <?php if (!empty($tag['guid'])): ?>
                                 <img src="data:image/png;base64,<?php
                                     ob_start();
@@ -243,7 +167,6 @@ if ($_FILES['file']['error'] === UPLOAD_ERR_OK) {
                             <?php endif; ?>
                         </div>
 
-                        <!-- Middle Area -->
                         <div class="middle-area">
                             <div style="font-size: 14px;">
                                 <strong><?php echo htmlspecialchars($_SESSION['elevationTitle']); ?>:</strong> <?php echo htmlspecialchars($tag['elevation_name']); ?>
@@ -260,7 +183,6 @@ if ($_FILES['file']['error'] === UPLOAD_ERR_OK) {
                             <strong><?php echo htmlspecialchars($_SESSION['fileDateTitle']); ?></strong> <?php echo htmlspecialchars($_SESSION['fileDate']); ?><br>
                         </div>
 
-                        <!-- Bottom Area -->
                         <div class="bottom-area">
                             <?php if (!empty($tag['bmp_path']) && file_exists($tag['bmp_path'])): ?>
                             <img src="data:image/bmp;base64,<?php
@@ -335,11 +257,3 @@ function adjustDynamicPath($originalPath) {
   // If no correct folder is found, return the original path
   return $originalPath;
 }
-
-
-
-?>
-
-
-
-        

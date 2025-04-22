@@ -57,29 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['companyLogo'])) {
 <head>
     <meta charset="UTF-8">
     <title>Upload Logo Result</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 20px; }
-        .status {
-            padding: 15px;
-            border-radius: 6px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .success { background-color: #d4edda; color: #155724; }
-        .error { background-color: #f8d7da; color: #721c24; }
-        .log { background: #fff; padding: 15px; border: 1px solid #ccc; border-radius: 6px; }
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-        }
-        button:hover { background-color: #0056b3; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="status <?= $status ?>"><?= $message ?></div>

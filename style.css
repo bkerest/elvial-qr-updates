@@ -1,0 +1,150 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+    background: #f4f4f4;
+    padding: 20px;
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+.form-container {
+    margin-bottom: 30px;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.settings-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.settings-link:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.status {
+    padding: 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.log {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    white-space: pre-line;
+}
+
+.page-container {
+    width: 297mm;
+    height: 210mm;
+    border: 0px solid black;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2mm;
+    box-sizing: border-box;
+    padding: 2mm;
+}
+
+.tag-container {
+    width: 70.25mm;
+    height: 101mm;
+    border: 0px solid black;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-area {
+    height: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2mm;
+}
+
+.logo {
+    max-width: 50mm;
+    max-height: 20mm;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.qr-code {
+    width: 20mm;
+    height: 20mm;
+}
+
+.middle-area {
+    height: 30%;
+    padding: 2mm;
+    font-size: 12px;
+    line-height: 1.0;
+    text-align: left;
+    display: block;
+}
+
+.bottom-area {
+    width: 70mm;
+    height: 50%;
+    display: flex;
+    object-fit: contain;
+    object-position: center;
+}
+
+.bmp-image {
+    max-width: 70mm;
+    max-height: 30mm;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: auto;
+}

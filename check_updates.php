@@ -96,16 +96,7 @@ function check_updates($local_versions_path = 'versions.json', $remote_versions_
     // HTML Output
     echo "<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'>";
     echo "<title>Update Results</title>";
-    echo "<style>
-        body { font-family: Arial; background: #f4f4f4; padding: 20px; }
-        .status { padding: 12px; margin-bottom: 20px; border-radius: 6px; font-weight: bold; }
-        .success { background-color: #d4edda; color: #155724; }
-        .partial { background-color: #fff3cd; color: #856404; }
-        .failed, .error { background-color: #f8d7da; color: #721c24; }
-        .log { background: #fff; padding: 15px; border: 1px solid #ccc; border-radius: 6px; white-space: pre-line; }
-        button { margin-top: 20px; padding: 10px 20px; font-size: 16px; border-radius: 5px; border: none; background-color: #007bff; color: white; cursor: pointer; }
-        button:hover { background-color: #0056b3; }
-    </style>";
+    echo "<link rel=\"stylesheet\" href=\"style.css\">";
     echo "</head><body>";
 
     echo "<div class='status $status'>$message</div>";

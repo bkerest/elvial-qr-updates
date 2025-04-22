@@ -22,9 +22,5 @@
     "settings.php": {
         "version": "1.1.1",
         "url": "https:\/\/raw.githubusercontent.com\/bkerest\/elvial-qr-updates\/ver.1.0.0\/settings.php"
-    },
-    "style.css": {
-        "version": "1.1.1",
-        "url": "https:\/\/raw.githubusercontent.com\/bkerest\/elvial-qr-updates\/ver.1.0.0\/style.css"
     }
 }
