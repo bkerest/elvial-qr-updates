@@ -15,6 +15,10 @@
         "version": "1.1.1",
         "url": "https://raw.githubusercontent.com/bkerest/elvial-qr-updates/ver.1.0.0/upload_logo.php"
     },
+    "check_updates.php": {
+        "version": "1.1.1",
+        "url": "https://raw.githubusercontent.com/bkerest/elvial-qr-updates/ver.1.0.0/check_updates.php"
+    },
     "settings.php": {
         "version": "1.1.1",
         "url": "https://raw.githubusercontent.com/bkerest/elvial-qr-updates/ver.1.0.0/settings.php"
