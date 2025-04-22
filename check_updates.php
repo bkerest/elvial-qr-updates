@@ -29,7 +29,7 @@ function fetch_remote_file($url) {
  * @param string $local_versions_path Path to the local versions.json file.
  * @param string $remote_versions_url URL to the remote versions.json file.
  */
-function check_updates($local_versions_path = 'versions.json', $remote_versions_url = 'https://www.elvialpro.eu/elvial-qr-updates/versions.json') {
+function check_updates($local_versions_path = 'versions.json', $remote_versions_url = 'https://raw.githubusercontent.com/bkerest/elvial-qr-updates/ver.1.0.0/versions.json') {
     // Check if the local versions.json file exists
     if (!file_exists($local_versions_path)) {
         echo json_encode(['status' => 'error', 'message' => 'Local versions.json not found.']);
