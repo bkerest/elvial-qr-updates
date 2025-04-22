@@ -8,7 +8,7 @@
         "url": "https:\/\/raw.githubusercontent.com\/bkerest\/elvial-qr-updates\/ver.1.0.0\/upload.php"
     },
     "generate_pdf.php": {
-        "version": "1.1.1",
+        "version": "1.1.4",
         "url": "https:\/\/raw.githubusercontent.com\/bkerest\/elvial-qr-updates\/ver.1.0.0\/generate_pdf.php"
     },
     "upload_logo.php": {
@@ -22,5 +22,9 @@
     "settings.php": {
         "version": "1.1.1",
         "url": "https:\/\/raw.githubusercontent.com\/bkerest\/elvial-qr-updates\/ver.1.0.0\/settings.php"
-    }
+    },
+    "style.css": {
+        "version": "1.1.1",
+        "url": "https:\/\/raw.githubusercontent.com\/bkerest\/elvial-qr-updates\/ver.1.0.0\/style.css"
+    }    
 }
