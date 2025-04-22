@@ -1,6 +1,6 @@
 <?php
 session_start(); // Start the session to store data
-//test text
+
 // Enable error reporting
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
