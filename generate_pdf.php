@@ -63,7 +63,38 @@ if (isset($_SESSION['tags']) && isset($_SESSION['jobName']) && isset($_SESSION['
         // Top Area: Logo and QR Code
         $logoPath = __DIR__ . '/files/logo.png';
         if (file_exists($logoPath)) {
-            $pdf->Image($logoPath, $x + 3, $y + 3, 47, 20, '', '', '', false, 300, '', false, false, 0, false, false, false);
+            list($origWidth, $origHeight) = getimagesize($logoPath);
+        
+            $maxWidth = 47;
+            $maxHeight = 20;
+        
+            // Calculate scaling while keeping aspect ratio
+            $widthRatio = $maxWidth / $origWidth;
+            $heightRatio = $maxHeight / $origHeight;
+            $scale = min($widthRatio, $heightRatio); // Choose the smaller one
+        
+            $finalWidth = $origWidth * $scale;
+            $finalHeight = $origHeight * $scale;
+        
+            $pdf->Image(
+                $logoPath,
+                $x + 3,
+                $y + 3,
+                $finalWidth,
+                $finalHeight,
+                '',
+                '',
+                '',
+                false,
+                300,
+                '',
+                false,
+                false,
+                0,
+                false,
+                false,
+                false
+            );
         }
 
         if (!empty($tag['guid'])) {
