@@ -81,17 +81,17 @@
     <h2>Settings</h2>
 
     <!-- Form to Upload Company Logo -->
-    <div class="form-container">
-        <form action="upload_logo.php" method="post" enctype="multipart/form-data">
-            <label for="companyLogo">Upload Company Logo:</label>
-            <input type="file" name="companyLogo" id="companyLogo" accept=".bmp, .jpg, .jpeg, .png" required>
-            <div class="button-container">
-                <button type="submit" class="button">Upload Logo</button>
-            </div>
-        </form>
-    </div>
+    <form action="upload_logo.php" method="post" enctype="multipart/form-data">
+        <label for="companyLogo">Upload Company Logo:</label>
+        <input type="file" name="companyLogo" id="companyLogo" accept=".bmp, .jpg, .jpeg, .png" required>
+        <button type="submit">Upload Logo</button>
+    </form>
 
     <!-- Display the uploaded logo if it exists -->
+    <?php if (file_exists(__DIR__ . '/files/logo.png')): ?>
+        <h3>Current Company Logo:</h3>
+        <img src="files/logo.png" alt="Company Logo" style="max-width: 200px; max-height: 200px;">
+    <?php endif; ?>
     
     <!-- Button to Check for Updates -->
     <div class="button-container">
