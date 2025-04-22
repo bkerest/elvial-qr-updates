@@ -1,0 +1,22 @@
+{
+    "index.php": {
+        "version": "1.1.1",
+        "url": "https:\/\/www.elvialpro.eu\/elvial-qr-updates\/index.php"
+    },
+    "upload.php": {
+        "version": "1.1.2",
+        "url": "https:\/\/www.elvialpro.eu\/elvial-qr-updates\/upload.php"
+    },
+    "generate_pdf.php": {
+        "version": "1.1.2",
+        "url": "https:\/\/www.elvialpro.eu\/elvial-qr-updates\/generate_pdf.php"
+    },
+    "upload_logo.php": {
+        "version": "1.1.1",
+        "url": "https:\/\/www.elvialpro.eu\/elvial-qr-updates\/upload_logo.php"
+    },
+    "settings.php": {
+        "version": "1.1.1",
+        "url": "https:\/\/www.elvialpro.eu\/elvial-qr-updates\/settings.php"
+    }
+}
