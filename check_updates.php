@@ -8,13 +8,12 @@
  * @return string|false The file content or false on failure.
  */
 function fetch_remote_file($url) {
-    // Append cache-busting query param
-    $url_with_bust = $url . (str_contains($url, '?') ? '&' : '?') . 't=' . time();
+    $url_with_bust = $url . (str_contains($url, '?') ? '&' : '?') . 't=' . microtime(true);
 
     $context = stream_context_create([
         'http' => [
             'method' => 'GET',
-            'header' => "User-Agent: ELVIAL QR Updater\r\nCache-Control: no-cache\r\n"
+            'header' => "User-Agent: ELVIAL QR Updater\r\nCache-Control: no-cache, no-store, must-revalidate\r\nPragma: no-cache\r\nExpires: 0\r\n"
         ]
     ]);
 
@@ -27,12 +26,14 @@ function fetch_remote_file($url) {
 }
 
 /**
- * Checks for updates and updates local files if newer versions are available.
+ * Checks for updates and updates local files if newer versions are available,
+ * or if force is set to true.
  *
- * @param string $local_versions_path Path to the local versions.json file.
- * @param string $remote_versions_url URL to the remote versions.json file.
+ * @param string $local_versions_path
+ * @param string $remote_versions_url
+ * @param bool $force
  */
-function check_updates($local_versions_path = 'versions.json', $remote_versions_url = 'https://raw.githubusercontent.com/bkerest/elvial-qr-updates/ver.1.0.0/versions.json') {
+function check_updates($local_versions_path = 'versions.json', $remote_versions_url = 'https://raw.githubusercontent.com/bkerest/elvial-qr-updates/ver.1.0.0/versions.json', $force = false) {
     if (!file_exists($local_versions_path)) {
         echo json_encode(['status' => 'error', 'message' => 'Local versions.json not found.']);
         return;
@@ -64,8 +65,10 @@ function check_updates($local_versions_path = 'versions.json', $remote_versions_
         $remote_url = $info['url'];
         $local_version = isset($local_versions[$file]['version']) ? $local_versions[$file]['version'] : '0.0.0';
 
-        if (version_compare($remote_version, $local_version, '>')) {
-            $log[] = "Updating $file from version $local_version to $remote_version";
+        $should_update = $force || version_compare($remote_version, $local_version, '>');
+
+        if ($should_update) {
+            $log[] = "Updating $file " . ($force ? "(forced)" : "from version $local_version to $remote_version");
 
             $file_content = fetch_remote_file($remote_url);
             if ($file_content === false) {
@@ -116,5 +119,6 @@ function check_updates($local_versions_path = 'versions.json', $remote_versions_
     }
 }
 
-// Run the updater
-check_updates();
+// Determine if force mode is enabled via GET
+$force = isset($_GET['force']) && $_GET['force'] == 1;
+check_updates('versions.json', 'https://raw.githubusercontent.com/bkerest/elvial-qr-updates/ver.1.0.0/versions.json', $force);
