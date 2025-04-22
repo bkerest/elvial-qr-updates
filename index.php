@@ -10,7 +10,7 @@
     <h1>ELVIAL QR Generator</h1>
 
     <div class="form-container">
-        <form action="upload.php" method="post" enctype="multipart/form-data">
+        <form action="upload.php" method="post" enctype="multipart/form-data" target="_blank">
             <label for="file">Choose Excel File:</label>
             <input type="file" name="file" id="file" accept=".xlsx" required>
             <div class="button-container">
